@@ -29,10 +29,8 @@ const TicketList: React.FC<TicketListProps> = ({ refresh }) => {
   }, [refresh, currentPage]); 
 
   const fetchTickets = () => {
-    const startIndex = (currentPage - 1) * ticketsPerPage;
-    const endIndex = startIndex + ticketsPerPage - 1; 
     fetch(
-      `http://52.35.66.255:8000/ticket_list/?start=${startIndex}&end=${endIndex}`
+      `http://52.35.66.255:8000/ticket_list/`
     )
       .then((response) => response.json())
       .then((data: ApiResponse) => {
